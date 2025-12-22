@@ -1,5 +1,10 @@
 from fastapi import FastAPI
-app = FastAPI(title="Chat Application Backend")
+from routes.rooms import router as rooms_router
+
+app = FastAPI(title="Secret Chat Backend")
+
+app.include_router(rooms_router)
+
 @app.get("/ping")
-async def ping():
-    return {"message":"Server is running"} 
+def ping():
+    return {"message": "Server is running 🚀"}
